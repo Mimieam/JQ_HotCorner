@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> </title>
+    </head>
+  <base href="http://docs.jquery.com" />
+<script src="http://code.jquery.com/jquery-1.3.js"></script>
+
+<style>
+
+  ul { margin-left:20px; color:blue; }
+  li { cursor:default; }
+  span { color:red; }
+  
+</style>
+<style>
+
+body{
+font-family:Verdana, Geneva, sans-serif;
+font-size:14px;}
+
+#slidingDiv, #slidingDiv_2{
+    height:300px;
+	background-color: #99CCFF;
+	padding:20px;
+	margin-top:10px;
+	border-bottom:5px solid #3399FF;
+	display:none;
+}
+
+
+
+</style>
+</head>
+<body>
+  <input type="text" name="first_name" id="first_name" value="Enter a site" />?
+<ul>
+    <li>Sara 1</li>
+    <li>BSara 2</li>
+    <li><a href='#'>Diva S</a></li>
+    <li><a href='#'>Diva with socks</a></li>
+  </ul>
+<script>
+  $(document).ready(function(){
+
+    $("li").hover(
+      function () {
+        $(this).append($("<span> ***</span>"));
+      }, 
+      function () {
+        $(this).find("span:last").remove();
+      }
+    );
+  
+ $("#first_name").blur(function () {
+         $("ul").append($(" <li ><span href = "+$(this).val()+"> "+ $(this).val() +"</span> </li>"));
+    });
+  
+  
+  $("ul").click(
+    function()
+    { 
+     
+     if ( $(this).children("li").length < 10 ) {
+      $(this).append($(" <li><span> I just want to say hello </span> </li>"));
+       // else 
+       $(this).append($("<div> ------------------------ </div>"));
+     }
+    }
+  )
+   
+  //Another example for mouse over effect on hyperlinks on page
+   $("a").hover(function(){$(this).fadeOut(100);$(this).fadeIn(500);});
+   
+    $('.show_hide').showHide({
+        speed: 1000,  // speed you want the toggle to happen
+        easing: '',  // the animation effect you want. Remove this line if you dont want an effect and if you haven't included jQuery UI
+        changeText: 1, // if you dont want the button text to change, set this to 0
+        showText: 'View',// the button text to show when a div is closed
+        hideText: 'Close' // the button text to show when a div is open
+ 
+    });
+
+   
+
+  });
+</script>
+<script type="text/javascript" charset="utf-8">
+(function ($) {
+    $.fn.showHide = function (options) {
+ 
+    //default vars for the plugin
+        var defaults = {
+            speed: 1000,
+            easing: '',
+            changeText: 0,
+            showText: 'Show',
+            hideText: 'Hide'
+ 
+        };
+        var options = $.extend(defaults, options);
+ 
+        $(this).click(function () {
+// optionally add the class .toggleDiv to each div you want to automatically close
+                      $('.toggleDiv').slideUp(options.speed, options.easing);
+             // this var stores which button you've clicked
+             var toggleClick = $(this);
+             // this reads the rel attribute of the button to determine which div id to toggle
+             var toggleDiv = $(this).attr('rel');
+             // here we toggle show/hide the correct div at the right speed and using which easing effect
+             $(toggleDiv).slideToggle(options.speed, options.easing, function() {
+             // this only fires once the animation is completed
+             if(options.changeText==1){
+             $(toggleDiv).is(":visible") ? toggleClick.text(options.hideText) : toggleClick.text(options.showText);
+             }
+              });
+ 
+          return false;
+ 
+        });
+ 
+    };
+})(jQuery);
+
+</script>
+
+
+</script>
+</script>
+<a class="show_hide" href="#" rel="#slidingDiv">View</a></pre>
+<div id="slidingDiv"  style="display: none;">Fill this space with really interesting content.</div>
+<pre>
+ <a class="show_hide" href="#" rel="#slidingDiv_2">View</a></pre>
+<div id="slidingDiv_2"  style="display: none;">Fill this space with really interesting content.</div>
+<pre>
+
+    </body>
+</html>

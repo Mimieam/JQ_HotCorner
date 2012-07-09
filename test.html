@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script  src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script  src = "HotCorner.js"></script>
+<link rel="stylesheet" href="HotCorner.css">
+
+<meta charset=utf-8 />
+<title>JS Bin</title>
+<!--[if IE]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<style>
+  body { font-family: sans-serif; }
+  .selection-box {
+    position:    absolute;
+    background: #433;
+    opacity: 0.9;
+    border:    0;
+    top:    0;
+    left:   0;
+    width:  0;
+    height: 0;
+    overflow: hidden;
+  }
+  .lvl1{
+    background: #223;
+    opacity: 0.9;
+    border:    0;
+
+    width:  222;
+    height: 222;
+  }
+   
+  
+</style>
+<script>
+
+(function( $ ){
+
+  $.fn.lockDimensions = function( type ) {  
+
+    return this.each(function() {
+
+      var $this = $(this);
+
+      if ( !type || type == 'width' ) {
+        $this.width( $this.width() );
+      }
+
+      if ( !type || type == 'height' ) {
+        $this.height( $this.height() );
+      }
+
+    });
+
+  };
+})( jQuery );
+</script>
+<script>
+
+ $(document).ready(function() {
+    $('div').lockDimensions('width').css('color', 'red');
+
+$('div#container').HotCorner();
+ });
+
+</script>
+</head>
+<body>
+  <div id="container"><p>just a div</p></div>
+  <div id = "hotCorner"> HC </div>
+</body>
+</html>
