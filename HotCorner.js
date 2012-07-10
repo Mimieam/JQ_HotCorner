@@ -5,20 +5,25 @@
  * @author          Miezan
  * @copyright       Copyright (c) 2012 .
  * @license         This plugin is under the dual MIT and GPL licenses.
- * @link            http://www.
- * @docs            http://www.
- * @version         Version 0.1
- *
+ * @link            http://c9.io/mimieam/jquery_training/workspace/test.html
+ * @docs            soon
+ * @version         Version 0.2
+ * @ TODO           Optimizing  -> contextual JQuery...
  ******************************************/
+ 
+ 
 (function( $ ){
  
   $.fn.HotCorner= function( options ) {  
  
     var defaults = {
-                top: 0,
-                left: 0,
-                width: '20px',
-                height: '20px'
+                HCtop: 0,
+                HCleft: 0,
+                HCwidth: '20px',
+                HCheight: '20px',
+                container:'#container',
+                toAddIn : $('<span>'),
+                persistentMode : 'off'
             };
  
     //call in the default otions
@@ -27,21 +32,25 @@
     return this.each(function() {
  
      var BrowserDim = browserDimension();
-
-                var $container = $('#container');
-                var $selection = $('<div>').addClass('selection-box');
+                
+                var $container = this;// $(options.container);
+                var $Curtain = $('<div>').addClass('selection-box'); 
                 var $hotCorner = $('#hotCorner');
-                var $toAddInCurtain = $('<div >').addClass('lvl1').append('<a href = "#"> myref </a> <button> CLICKE ME</button>');
-
-                $toAddInCurtain.appendTo($selection);
-                $selection.appendTo($container);
-
-                var topP = $hotCorner.css('top');
-                var leftP = $hotCorner.css('left');
-
+                
+                var $toAddInCurtain = options.toAddIn; 
+               
+                
+                $toAddInCurtain.appendTo($Curtain);
+                $Curtain.appendTo($container);
+               
+                var topP = options.HCtop;
+                var leftP = options.HCleft;
+                
+                $hotCorner.css({'top':topP,'left':leftP , 'width':options.HCwidth, 'height':options.HCheight });  //reposition hc if options are provided;
+                
                 /* Clicks handler */
-                $selection.click(function () {$(this).fadeOut('100'); });
-                $selection.children().click( function (e) { e.stopPropagation();  $selection.fadeOut('slow'); } ); // prevent the click to be fired in the parent also
+                $Curtain.click(function () {$(this).fadeOut('100'); });
+                $Curtain.children().click( function (e) { e.stopPropagation(); if (options.persistentMode=='off') $Curtain.fadeOut('slow'); } ); // prevent the click to be fired in the parent also
                 
                 
                 $('button').click(function () {$(this).fadeOut('100').fadeIn('300');});
@@ -52,7 +61,7 @@
 
 
                 $hotCorner.hover(function () { //going in 
-                    $selection.css({
+                    $Curtain.css({
                         'top': topP,
                         'left': leftP,
                         'width': 0,
@@ -67,7 +76,7 @@
 
 
                 }, function () { //coming out
-                    $selection.css({
+                    $Curtain.css({
                         'top': 0,
                         'left': 0,
                         'width': BrowserDim[0],

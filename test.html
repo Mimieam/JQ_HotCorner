@@ -12,17 +12,7 @@
 <![endif]-->
 <style>
   body { font-family: sans-serif; }
-  .selection-box {
-    position:    absolute;
-    background: #433;
-    opacity: 0.9;
-    border:    0;
-    top:    0;
-    left:   0;
-    width:  0;
-    height: 0;
-    overflow: hidden;
-  }
+
   .lvl1{
     background: #223;
     opacity: 0.9;
@@ -60,11 +50,28 @@
 <script>
 
  $(document).ready(function() {
-    $('div').lockDimensions('width').css('color', 'red');
+  //  $('div').lockDimensions('width').css('color', 'red');
+ var GoesInCurtain = $('<iframe>').attr({"width":"600px","height":"600px","src":"http://yahoo.com/"});
+    
+    //$('<div >').addClass('lvl1').append('<a href = "#"> myref </a> <button> CLICKE ME</button>');
+ 
+ 
+ var options = { 
+     'HCtop' : '20px' , 
+     'HCleft' : '333px' ,
+    // 'HCwidth' : '333px',
+     'toAddIn':GoesInCurtain,
+     'container':'#container',
+     'persistentMode' : 'off'
+     
+     };
 
-$('div#container').HotCorner();
+ 
+ //$('div#container').HotCorner() // yeah chainability not broken :D
+ $('div#container').HotCorner(options);//.find("div.selection-box").css({"background":"#122", "width":"373px"});  //works
  });
 
+ 
 </script>
 </head>
 <body>
