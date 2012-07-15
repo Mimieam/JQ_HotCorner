@@ -21,7 +21,7 @@
                 HCleft: 0,
                 HCwidth: '20px',
                 HCheight: '20px',
-                container:'#container',
+                container:'#HC_container',
                 toAddIn : $('<span>'),
                 persistentMode : 'off'
             };

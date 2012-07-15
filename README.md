@@ -1,19 +1,22 @@
 #This is a linux like Hot corner 
 
 #Description
-    when hovering on a 'hot corner' - it deploys a curtain covering the entire webpage
+*    when hovering on a 'hot corner' - it deploys a curtain covering the entire webpage
 
 
 #Basic Behavior:
-       On Hovering the HotCorner (HC) -  a large transparent curtain is deployed, expanding from the HC to the side of the browser.
-       the curtain stays open until an click is inside of it is made.
+*       On Hovering the HotCorner (HC) -  a large transparent curtain is deployed, expanding from the HC to the side of the browser.
+*       the curtain stays open until an click is inside of it is made.
 	  
 #Possible Customization:       
-       persistent curtain - when persistantMode is On , anyclick on an element in the curtain does not close the curtain
+*       persistent curtain - when persistantMode is On , anyclick on an element in the curtain does not close the curtain
        
 
+Example @  
+http://c9.io/mimieam/jquery_training/workspace/test.html
+
 #TO DO : 
-         - add more example of possible usage.
+*         - add more example of possible usage.
             
             
             

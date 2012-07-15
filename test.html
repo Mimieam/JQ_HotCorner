@@ -8,11 +8,13 @@
         <link rel="stylesheet" href="test.css">
         <meta charset=utf-8 />
         <title>HC - Testing</title>
+       
         <!--[if IE]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
         <script>
-        //http://motyar.blogspot.com/2010/02/get-user-selected-text-with-jquery-and.html
+        
+        // a nice function that made my life a little easier - found at http://motyar.blogspot.com/2010/02/get-user-selected-text-with-jquery-and.html
             function getSelected() {
                 if (window.getSelection) {
                     return window.getSelection();
@@ -47,7 +49,7 @@
                     document.getElementById('countdown_text').innerHTML = Arr[index];
                     index++;
                     if (index > 0) {
-                        countdown = setTimeout('startReading()', 300);
+                        countdown = setTimeout('startReading()', 200);
                     }
                 }
             }
@@ -57,8 +59,8 @@
                 index = MAX;
             }
 
-                               function RetriveSelectedTxt() {
-                     var  selectedTxt = "initial";
+                     function RetriveSelectedTxt() {
+                     var  selectedTxt = "No Selection was made (that's why u see me ... select a text on the main page and go back on HC - thank you)";
                     var selection = getSelected();
                      console.log("mouseup : "+ selectedTxt);
                     if (selection && (selection = new String(selection).replace(/^\s+|\s+$/g, ''))) {
@@ -80,13 +82,13 @@
                 var GoingIn3 = $('<div >').addClass('lvl1').append('<a href = "#"> myref </a> <button> CLICKE ME</button>');
 
                 var GoingIn4 = $('<div>').addClass('lvl2').append(' \
-    				<textarea id = "inputBox" rows="5" cols="30" > </textarea>\
+    				<textarea id = "inputBox" rows="10" cols="120" > </textarea> <br/>\
 						<input type="button" value="start Reading" onclick="SR_init()" /> </input>\
 						<input type="button" value="stop Reading" onclick="SR_clear()" /> </input>\
 					  <hr/>\
 					</div>\
 					<div id="countdown_text" style=" left:330px; top:400px; margin:20px; height:60px; padding:17px; \
-						overflow:hidden; border:2px #f32323 dotted ; background: #222222 ;color:#434534; " >  </div>');
+						overflow:hidden; border:2px #f32323 dotted ; background: #222222 ;color:#777; " >  </div>');
 
 
                 var GoesInCurtain = $('<div>');
@@ -103,14 +105,14 @@
                     'HCleft': '0px',
                     // 'HCwidth' : '333px',
                     'toAddIn': GoesInCurtain,
-                    'container': '#container',
+                    'container': '#HC_container',
                     'persistentMode': 'on'
 
                 };
 
 
                 //$('div#container').HotCorner() // yeah chainability not broken :D
-                $('div#container').HotCorner(options); //.find("div.selection-box").css({"background":"#122", "width":"373px"});  //works
+                $('div#HC_container').HotCorner(options); //.find("div.selection-box").css({"background":"#122", "width":"373px"});  //works
                 
                 
                    
@@ -144,31 +146,104 @@
     </head>
     
     <body>
-        <div id="container">
-            <p> Mimi first appears in the game Super Paper Mario during the meeting of Count Bleck's minions which occurs after Mario enters the door to Chapter 1. However, Mimi's name and her actual form is not seen in this cutscene, as she uses her transformative abilities to appear like various different characters. She first takes upon O'Chunks's form, and, due to this being the introduction to the villains, seems like she really is the bulky minion, until the real O'Chunks pops in. Then, she takes upon Count Bleck's form to scold O'Chunks, Princess Peach's form to accept the Count's compliment on her shape-shifting, then Bowser's form to yell at Dimentio for reading her diary (a reference to the first Paper Mario).
-
-
-
-Mimi dresses in a maid uniform.
-Mario and Peach first encounter Mimi in her normal form when they reach Merlee's Mansion in Chapter 2-2. Unbeknown to the heroes, Mimi had been sent there by Count Bleck to defeat them before they can obtain the next Pure Heart, which Merlee has taken with her into hiding. Taking the guise of Merlee's handmaid, Mimi makes her first attempt on Mario and Peach's lives when she tells them that Merlee is in the room above them. When the heroes enter the room, the door is covered by bars and the roof begins to lower. Mario escapes the trap by flipping into 3-D, and continues his search for Merlee, He and Peach eventually release Merlee's pet, Gnaw, which chases Mimi away.
-
-In Chapter 2-3, Mimi orders Mario and Peach to work off a debt of one million Rubees after they break a vase. Using their new Pixl friend, Slim, they discover a secret stash of Rubees, allowing them to pay off the debt. This causes Mimi to go into a shock, saying it was "impossible" to earn one million Rubees and claiming the "wonderful curse" she put on the mansion was broken. She then flees by appearing to explode.
-
-
-
-Mimi yelling at Mario for breaking a vase.
-In the last part of Chapter 2, Mimi impersonates Merlee and asks Mario to sign a contract to pay off 10 million Rubees for the Pure Heart. However, a ghost-form of the real Merlee warns the heroes that it was a fake. Mimi gets angry and morphs into her Rubee-shooting "true" spider form, which is impervious to attacks at this point. She chases Mario and Peach around the mansion's basement, spawning at their location whenever they take too long to move on from a room. After a long and grueling chase, Mario and Peach find a bathroom at the bottom of the basement where Merlee is hiding with the Pure Heart. Mimi then appears and in a flash of light she transforms into Merlee. To decide which Merlee is the real one, a contest is held where Mario must ask each of the Merlee five questions to decide which one in the real Merlee. Regardless of whether or not the heroes choose correctly, Mimi attacks Mario and Peach, but Merlee removes her invincibility with cheer-leader-like chants. It is noted that Spider Mimi's legs fall off after taking enough hits. She is then defeated by Mario and flees the mansion.
-
-Mimi is fought again in Chapter 6. Posing as King Sammer, she tells Mario that the Pure Heart is in the chest beside them. When opening the Treasure Chest, Mario finds a bomb, and, when he isn't fazed by the explosion that erupts from it, Mimi attacks him, this time in her girl form, to waste the rapidly declining time before Sammer's Kingdom is destroyed by The Void. Although she loses in the battle, she succeeds in her goal as Sammer's Kingdom is destroyed.
-
-In Chapter 8, Mimi poses as Merlon and tells the heroes to hit a ! Block. When struck, it causes Mario and Co. to fall into a pit. She then disguises herself as Merlee once again, and asks three questions on what Mario is afraid of; she places the items or enemies in a corridor up ahead, and when the heroes survive, she gets upset and insults Peach. While Mario and Luigi continue on through the castle, Peach and Mimi have a one-on-one battle, ending in Mimi's defeat just as the room begins to fall apart. Mimi almost falls into a hole in the ground, and even though Peach grabs her by the leg in an attempt to save her, the girl is too heavy for the princess and they both fall into the trench.
-
-Mimi is revealed to survive when she and O'Chunks come to Count Bleck's aid after her fellow henchman, Dimentio, takes over. She warps herself and O'Chunks to Dimension D to help the Count. Mimi and O'Chunks' love for Count Bleck helped Mario, Peach, and Bowser defeat Super Dimentio. This action redeems Mimi.
-
-After the game is beaten, she gets a job working as Merlee's actual maid, and, since Merlee rarely uses her mansion (as she had moved to Flopside far earlier in the game), she decided turn Merlee's mansion into a stable of cutie-pies (boys). One of Mimi's former slaves says Mimi is making him pay for the time he spent in the mansion while she was away, he however is delighted at this because he now has something to do. To help raise money for her stable, she begins the creation of a Cutie-Pie Video Game and a Cutie-Pie Cafe.</p>
+    <center>
+        <h2>Hello and Welcome to the Hot Corner Testing page</h2>
+    </center>
+    <h3>Description:</h3>
+    <center>
+        <p class="p_txt">This page was mainly made to test the Hot Corner Plugin (
+            <strong>
+                <a href="https://github.com/Mimieam/JQ_HotCorner"> Here </a>
+            </strong>)
+            <br/>The plugin itself does one thing : cover your webpage with a fully customizable
+            curtain.
+            <br/>It is so simple, concept and usage wise, that it opens the door to many
+            applications - by embroidery of widgets to the curtain
+            <br/>
+        </p>
+    </center>
+    <h3>Motivation:</h3>
+    <center>
+        <p class="p_txt">I wanted to be able to access cool tools while navigating a page.</p>
+    </center>
+    <h3>Example(s):</h3>
+    <p class="p_txt">For this test, a simple Speed Reader widget was embroidered on the curtain <br/>
+    All you have to do is <b> select  something </b> to be read( hey look it just happens that there is a text below ^^ from Wikipedia  )<br/>
+    ,<b>  go on HC</b>  (top-left corner) and <b> click Start Reading</b> . To exit the curtain click anywere below the line  </p>
+    <center>
+        <div id="HC_container">
+            <p>Mimi first appears in the game Super Paper Mario during the meeting of
+                Count Bleck's minions which occurs after Mario enters the door to Chapter
+                1. However, Mimi's name and her actual form is not seen in this cutscene,
+                as she uses her transformative abilities to appear like various different
+                characters. She first takes upon O'Chunks's form, and, due to this being
+                the introduction to the villains, seems like she really is the bulky minion,
+                until the real O'Chunks pops in. Then, she takes upon Count Bleck's form
+                to scold O'Chunks, Princess Peach's form to accept the Count's compliment
+                on her shape-shifting, then Bowser's form to yell at Dimentio for reading
+                her diary (a reference to the first Paper Mario). Mimi dresses in a maid
+                uniform. Mario and Peach first encounter Mimi in her normal form when they
+                reach Merlee's Mansion in Chapter 2-2. Unbeknown to the heroes, Mimi had
+                been sent there by Count Bleck to defeat them before they can obtain the
+                next Pure Heart, which Merlee has taken with her into hiding. Taking the
+                guise of Merlee's handmaid, Mimi makes her first attempt on Mario and Peach's
+                lives when she tells them that Merlee is in the room above them. When the
+                heroes enter the room, the door is covered by bars and the roof begins
+                to lower. Mario escapes the trap by flipping into 3-D, and continues his
+                search for Merlee, He and Peach eventually release Merlee's pet, Gnaw,
+                which chases Mimi away. In Chapter 2-3, Mimi orders Mario and Peach to
+                work off a debt of one million Rubees after they break a vase. Using their
+                new Pixl friend, Slim, they discover a secret stash of Rubees, allowing
+                them to pay off the debt. This causes Mimi to go into a shock, saying it
+                was "impossible" to earn one million Rubees and claiming the "wonderful
+                curse" she put on the mansion was broken. She then flees by appearing to
+                explode. Mimi yelling at Mario for breaking a vase. In the last part of
+                Chapter 2, Mimi impersonates Merlee and asks Mario to sign a contract to
+                pay off 10 million Rubees for the Pure Heart. However, a ghost-form of
+                the real Merlee warns the heroes that it was a fake. Mimi gets angry and
+                morphs into her Rubee-shooting "true" spider form, which is impervious
+                to attacks at this point. She chases Mario and Peach around the mansion's
+                basement, spawning at their location whenever they take too long to move
+                on from a room. After a long and grueling chase, Mario and Peach find a
+                bathroom at the bottom of the basement where Merlee is hiding with the
+                Pure Heart. Mimi then appears and in a flash of light she transforms into
+                Merlee. To decide which Merlee is the real one, a contest is held where
+                Mario must ask each of the Merlee five questions to decide which one in
+                the real Merlee. Regardless of whether or not the heroes choose correctly,
+                Mimi attacks Mario and Peach, but Merlee removes her invincibility with
+                cheer-leader-like chants. It is noted that Spider Mimi's legs fall off
+                after taking enough hits. She is then defeated by Mario and flees the mansion.
+                Mimi is fought again in Chapter 6. Posing as King Sammer, she tells Mario
+                that the Pure Heart is in the chest beside them. When opening the Treasure
+                Chest, Mario finds a bomb, and, when he isn't fazed by the explosion that
+                erupts from it, Mimi attacks him, this time in her girl form, to waste
+                the rapidly declining time before Sammer's Kingdom is destroyed by The
+                Void. Although she loses in the battle, she succeeds in her goal as Sammer's
+                Kingdom is destroyed. In Chapter 8, Mimi poses as Merlon and tells the
+                heroes to hit a ! Block. When struck, it causes Mario and Co. to fall into
+                a pit. She then disguises herself as Merlee once again, and asks three
+                questions on what Mario is afraid of; she places the items or enemies in
+                a corridor up ahead, and when the heroes survive, she gets upset and insults
+                Peach. While Mario and Luigi continue on through the castle, Peach and
+                Mimi have a one-on-one battle, ending in Mimi's defeat just as the room
+                begins to fall apart. Mimi almost falls into a hole in the ground, and
+                even though Peach grabs her by the leg in an attempt to save her, the girl
+                is too heavy for the princess and they both fall into the trench. Mimi
+                is revealed to survive when she and O'Chunks come to Count Bleck's aid
+                after her fellow henchman, Dimentio, takes over. She warps herself and
+                O'Chunks to Dimension D to help the Count. Mimi and O'Chunks' love for
+                Count Bleck helped Mario, Peach, and Bowser defeat Super Dimentio. This
+                action redeems Mimi. After the game is beaten, she gets a job working as
+                Merlee's actual maid, and, since Merlee rarely uses her mansion (as she
+                had moved to Flopside far earlier in the game), she decided turn Merlee's
+                mansion into a stable of cutie-pies (boys). One of Mimi's former slaves
+                says Mimi is making him pay for the time he spent in the mansion while
+                she was away, he however is delighted at this because he now has something
+                to do. To help raise money for her stable, she begins the creation of a
+                Cutie-Pie Video Game and a Cutie-Pie Cafe.</p>
         </div>
         <div id="hotCorner">HC</div>
-            
-    </body>
+    </center>
+</body>
 
 </html>

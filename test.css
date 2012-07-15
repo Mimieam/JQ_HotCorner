@@ -1,4 +1,6 @@
-  body { font-family: sans-serif; }
+  body { background:#D6D6D6;
+  
+  font-family: sans-serif; }
 
   .lvl1{
     background: #223;
@@ -17,3 +19,44 @@
     height: 222px;
   }
    
+   .p_txt{        
+        text-align:center;
+        left:330px;
+        top:400px;
+        margin:20px;
+       
+        padding:17px;
+        overflow:hidden;
+        border:2px #f32323 dotted ;
+        background: #222222 ;
+        color:#777;  
+        
+    }
+    
+    .p_txt:hover{
+        
+         background: transparent ;
+          color:#233;  
+        
+        }
+        
+.selection-box {
+    position:    absolute;
+    background:  #669999;
+
+    opacity: 0.9;
+    border:    0;
+    top:    0;
+    left:   0;
+    width:  0;
+    height: 0;
+    overflow: hidden;
+  }      
+      
+      
+      
+h3,b {
+    color: #303030;
+    margin: 0px;
+    
+    }
