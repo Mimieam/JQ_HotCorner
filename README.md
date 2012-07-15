@@ -15,3 +15,7 @@
 #TO DO : 
          - add more example of possible usage.
             
+            
+            
+            
+ps : do not set persitent mode while add an child object that is covering the all curtain, or you wont be able to make it go away
