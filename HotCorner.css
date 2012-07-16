@@ -1,5 +1,5 @@
 #HC_container {
-    width:  1000px;
+    width:  60%;
     height: 300px;
     background:  #ddd;
     line-height: 30px;
@@ -8,7 +8,7 @@
     // -moz-user-select: none;
     // -webkit-user-select: none;
     //user-select: none;
-    overflow: auto;
+    overflow: hidden;
   }
   
 #hotCorner {

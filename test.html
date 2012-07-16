@@ -4,145 +4,23 @@
     <head>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
         <script src="HotCorner.js"></script>
+        <script src="test.js"></script>
         <link rel="stylesheet" href="HotCorner.css">
         <link rel="stylesheet" href="test.css">
+        <script src = "Scripts/speedReader.js"> </script>
         <meta charset=utf-8 />
         <title>HC - Testing</title>
        
         <!--[if IE]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
-        <script>
-        
-        // a nice function that made my life a little easier - found at http://motyar.blogspot.com/2010/02/get-user-selected-text-with-jquery-and.html
-            function getSelected() {
-                if (window.getSelection) {
-                    return window.getSelection();
-                } else if (document.getSelection) {
-                    return document.getSelection();
-                } else {
-                    var selection = document.selection && document.selection.createRange();
-                    if (selection.text) {
-                        return selection.text;
-                    }
-                    return false;
-                }
-                return false;
-            }
-        </script>
-        <script>
-         
-            var index, MAX, str, Arr,
-            inputStr = document.getElementById('inputBox'),
-             outputBox = document.getElementById('countdown_text');
-
-            function SR_init() { //spead Reading
-                str = document.getElementById('inputBox').value;
-                Arr = str.split(" ");
-                MAX = Arr.length;
-                index = 0;
-                startReading();
-            }
-
-            function startReading() {
-                if (index < MAX) {
-                    document.getElementById('countdown_text').innerHTML = Arr[index];
-                    index++;
-                    if (index > 0) {
-                        countdown = setTimeout('startReading()', 200);
-                    }
-                }
-            }
-
-            function SR_clear() {
-                clearTimeout(index);
-                index = MAX;
-            }
-
-                     function RetriveSelectedTxt() {
-                     var  selectedTxt = "No Selection was made (that's why u see me ... select a text on the main page and go back on HC - thank you)";
-                    var selection = getSelected();
-                     console.log("mouseup : "+ selectedTxt);
-                    if (selection && (selection = new String(selection).replace(/^\s+|\s+$/g, ''))) {
-                         var temp  = $('<span>').html(selection) ; 
-                         selectedTxt = temp.text();
-                    }
-                    
-                    return selectedTxt;
-                    }
-           
-           $(document).ready(function () {
-                
-
-                
-                
-                //  $('div').lockDimensions('width').css('color', 'red');
-                var GoingIn1 = $('<iframe>').attr({"width": "500px","height": "700px","src": "http://www.microsoft.com"});
-                var GoingIn2 = $('<iframe>').attr({"width": "300px","height": "300px","src": "http://www.Echimane.com" });
-                var GoingIn3 = $('<div >').addClass('lvl1').append('<a href = "#"> myref </a> <button> CLICKE ME</button>');
-
-                var GoingIn4 = $('<div>').addClass('lvl2').append(' \
-    				<textarea id = "inputBox" rows="10" cols="120" > </textarea> <br/>\
-						<input type="button" value="start Reading" onclick="SR_init()" /> </input>\
-						<input type="button" value="stop Reading" onclick="SR_clear()" /> </input>\
-					  <hr/>\
-					</div>\
-					<div id="countdown_text" style=" left:330px; top:400px; margin:20px; height:60px; padding:17px; \
-						overflow:hidden; border:2px #f32323 dotted ; background: #222222 ;color:#777; " >  </div>');
-
-
-                var GoesInCurtain = $('<div>');
-
-                //GoesIn1.appendTo(GoesInCurtain);
-                //GoingIn3.appendTo(GoesInCurtain);
-                GoingIn4.appendTo(GoesInCurtain);
-                //GoingIn2.appendTo(GoesInCurtain);
-                //
-
-
-                var options = {
-                    'HCtop': '0px',
-                    'HCleft': '0px',
-                    // 'HCwidth' : '333px',
-                    'toAddIn': GoesInCurtain,
-                    'container': '#HC_container',
-                    'persistentMode': 'on'
-
-                };
-
-
-                //$('div#container').HotCorner() // yeah chainability not broken :D
-                $('div#HC_container').HotCorner(options); //.find("div.selection-box").css({"background":"#122", "width":"373px"});  //works
-                
-                
-                   
-           
-                
-//                    var selection = getSelected();
-//                    if (selection && (selection = new String(selection).replace(/^\s+|\s+$/g, ''))) {
-//                        //$('<textarea#inputBox>').html(selection);
-//                         var temp  = $('<span>').html(selection) ; 
-//                         selectedTxt = temp.text();
-//                    }
-
-                    
-             
-       
-            
-            $('#hotCorner').hover( function(){ selectedTxt = RetriveSelectedTxt();  console.log("inhover : "+ selectedTxt); if (selectedTxt != "") $('textarea#inputBox').val(selectedTxt);} , 
-                                    function(){  console.log("Outhover : "+ selectedTxt);  if (selectedTxt != "") $('textarea#inputBox').val(selectedTxt);
-                                                $('.countdown_text').css({"background":"#122"}); } 
-                                    
-                                    );  // need to be delayed
-            
-                
-                
+        <script>   
+           $(document).ready(function () {              
+                loadCurtain();
             });    
-                
-           
-
-
         </script>
+        
+        
     </head>
     
     <body>
@@ -169,9 +47,22 @@
     <h3>Example(s):</h3>
     <p class="p_txt">For this test, a simple Speed Reader widget was embroidered on the curtain <br/>
     All you have to do is <b> select  something </b> to be read( hey look it just happens that there is a text below ^^ from Wikipedia  )<br/>
-    ,<b>  go on HC</b>  (top-left corner) and <b> click Start Reading</b> . To exit the curtain click anywere below the line  </p>
+    ,<b>  go on HC</b>  (top-left corner) and <b> click Start Reading</b> . To exit the curtain click anywhere below the line  </p>
     <center>
-        <div id="HC_container">
+       </center>
+   
+    <div class="p_txt" style = "float: right; width:30%;">
+         <h4>To Do Next ? </h4>
+        <p style = "text-align: left;" > *Improve the speed reader player <br/>
+             *add the 
+            <strong>  <a href="javascript:(function(){document.body.appendChild(document.createElement('script')).src='http://c9.io/mimieam/jquery_training/workspace/HC_Bookmarklet.js';})();"> bookmarklet version of HC </a>
+            </strong><br/>
+             *add more examples
+             *bugs hunting
+        </p>
+    </div>
+    
+        <div id="HC_container" style ="float :left ;"}>
             <p>Mimi first appears in the game Super Paper Mario during the meeting of
                 Count Bleck's minions which occurs after Mario enters the door to Chapter
                 1. However, Mimi's name and her actual form is not seen in this cutscene,
